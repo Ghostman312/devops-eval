@@ -33,15 +33,17 @@ jobs:
           docker build . -t devopsevaljblucas.azurecr.io/run:${{ github.sha }}
           docker push devopsevaljblucas.azurecr.io/run:${{ github.sha }}
           
-      - name: 'Login via Azure CLI'
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
   delploy:
     
     runs-on: ubuntu-latest
     
     steps:
+     
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: 'Deploy to Azure Container Instances'
         uses: 'azure/aci-deploy@v1'
         with:
