@@ -48,12 +48,12 @@ jobs:
         uses: 'azure/aci-deploy@v1'
         with:
           resource-group: ${{ secrets.RESOURCE_GROUP }}
-          dns-name-label: ${{ github.ref_name }}-devopsevaljblucas
+          dns-name-label: ${{ github.ref_name }}-devopseval
           image: devopsevaljblucas.azurecr.io/run:${{ github.sha }}
           registry-login-server: devopsevaljblucas.azurecr.io
           registry-username: ${{ secrets.ACR_USERNAME }}
           registry-password: ${{ secrets.ACR_PASSWORD }}
-          name: devopsevaljblucasinst
+          name: devopseval
           location: 'francecentral'
           
   Test:
